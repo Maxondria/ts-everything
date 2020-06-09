@@ -50,6 +50,9 @@ web_modules/
 # Optional npm cache directory
 .npm
 
+#ts builds
+sort/build/
+
 # Optional eslint cache
 .eslintcache
 
