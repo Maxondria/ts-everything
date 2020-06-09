@@ -52,6 +52,7 @@ web_modules/
 
 #ts builds
 sort/build/
+stats/build/
 
 # Optional eslint cache
 .eslintcache
