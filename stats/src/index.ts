@@ -1,19 +1,11 @@
 import MatchReader from "./MatchReader";
-import CSVFileReader from "./CSVFileReader";
-import { matchResult } from "./matchResult";
 
-const csvReader = new CSVFileReader("football.csv");
-const matchReader = new MatchReader(csvReader);
-matchReader.load();
+import Summary from "./Summary";
 
-let arsWins = 0;
+const matches = MatchReader.FromCSVFile("football.csv");
 
-for (let match of matchReader.matches) {
-  if (match[1] === "Arsenal" && match[5] === matchResult.HomeWin) {
-    arsWins++;
-  } else if (match[2] === "Arsenal" && match[5] === matchResult.AwayWin) {
-    arsWins++;
-  }
-}
+const summaryConsole = Summary.WinsAnalysisWithConsoleReport("Man United");
+summaryConsole.buildAndPrintReport(matches);
 
-console.log(arsWins);
+const summaryHTML = Summary.WinsAnalysisWithHTMLReport("Man United");
+summaryHTML.buildAndPrintReport(matches);
